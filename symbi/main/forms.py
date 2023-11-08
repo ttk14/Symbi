@@ -6,11 +6,11 @@ from .models import SocialUser
 
 
 class RegisterForm(UserCreationForm):
-    first_name = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={"placeholder": "First Name"})
+    username = forms.CharField(
+        max_length=30, widget=forms.TextInput(attrs={"placeholder": "Username"})
     )
-    last_name = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={"placeholder": "Last Name"})
+    full_name = forms.CharField(
+        max_length=30, widget=forms.TextInput(attrs={"placeholder": "Full Name"})
     )
     email = forms.EmailField(
         max_length=254,
@@ -20,7 +20,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = SocialUser
-        fields = ("first_name", "last_name", "email", "password1", "password2")
+        fields = ("username", "full_name", "email", "password1", "password2")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

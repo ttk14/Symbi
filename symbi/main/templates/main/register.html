@@ -8,9 +8,9 @@
             <form method="post">
                 {% csrf_token %}
                 <label for="chk" aria-hidden="true">Sign up</label>
-                {{ register_form.first_name }}
-                {{ register_form.last_name }}
+                {{ register_form.username }}
                 {{ register_form.email }}
+                {{ register_form.full_name }}
                 {{ register_form.password1 }}
                 {{ register_form.password2 }}
                 <button type="submit" name="action" value="signup">Sign Up</button>
