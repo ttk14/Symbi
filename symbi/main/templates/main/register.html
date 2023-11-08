@@ -1,0 +1,54 @@
+{% comment %} Credit https://codepen.io/mamislimen/pen/jOwwLvy {% endcomment %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/register.css' %}">
+{% block content %}
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form method="post">
+                {% csrf_token %}
+                <label for="chk" aria-hidden="true">Sign up</label>
+                {{ register_form.first_name }}
+                {{ register_form.last_name }}
+                {{ register_form.email }}
+                {{ register_form.password1 }}
+                {{ register_form.password2 }}
+                <button type="submit" name="action" value="signup">Sign Up</button>
+            </form>
+        </div>
+        <div class="login">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="chk" aria-hidden="true">Login</label>
+                {{ login_form.email }}
+                {{ login_form.password }}
+                <button type="submit" name="action" value="login">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+{% comment %} <div class="register-container">
+    <h2>Register</h2>
+    <form>
+        <div class="input-container">
+            <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+            {{ form.first_name }}
+        </div>
+        <div class="input-container">
+            <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+            {{ form.last_name }}
+        </div>
+        <div class="input-container">
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+        </div>
+        <div class="input-container">
+            <label for="{{ form.password1.id_for_label }}">Password:</label>
+            {{ form.password1 }}
+        </div>
+        <div class="input-container">
+            <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+            {{ form.password2 }}
+        </div>
+    </form>
+</div> {% endcomment %}
